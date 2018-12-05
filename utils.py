@@ -6,7 +6,7 @@ def getlines(challenge, debug=True):
     if debug:
         lines = open(f'day{challenge}/debug_input.txt').readlines()
     if exists(cachepath):
-        lines = open(cachepath).readlines()
+        lines = [line.strip() for line in open(cachepath).readlines()]
     else:
         input = get(f'https://adventofcode.com/2018/day/{challenge}/input', cookies={'session': open(expanduser('~/.aoc_session')).read().strip()}).text
         lines = input.split('\n')
